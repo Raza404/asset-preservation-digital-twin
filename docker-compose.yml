@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # Time-series database for telemetry
+  influxdb:
+    image: influxdb:2.7
+    container_name: drone-influxdb
+    ports:
+      - "8086:8086"
+    volumes:
+      - influxdb-data:/var/lib/influxdb2
+      - influxdb-config:/etc/influxdb2
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=admin
+      # WARNING: Change these default passwords before production use!
+      # Generate secure token: openssl rand -base64 32
+      - DOCKER_INFLUXDB_INIT_PASSWORD=adminpass123  # CHANGE THIS
+      - DOCKER_INFLUXDB_INIT_ORG=drone-org
+      - DOCKER_INFLUXDB_INIT_BUCKET=telemetry
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=my-super-secret-auth-token  # CHANGE THIS
+    networks:
+      - drone-network
+
+  # Relational database for metadata
+  postgres:
+    image: postgres:15
+    container_name: drone-postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER=drone_user
+      # WARNING: Change this default password before production use!
+      - POSTGRES_PASSWORD=drone_pass  # CHANGE THIS
+      - POSTGRES_DB=drone_digital_twin
+    networks:
+      - drone-network
+
+  # MQTT Broker for real-time streaming
+  mosquitto:
+    image: eclipse-mosquitto:2.0
+    container_name: drone-mqtt
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - mosquitto-data:/mosquitto/data
+      - mosquitto-logs:/mosquitto/log
+      - ./config/mosquitto.conf:/mosquitto/config/mosquitto.conf
+    networks:
+      - drone-network
+
+  # Redis for caching
+  redis:
+    image: redis:7-alpine
+    container_name: drone-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - drone-network
+
+volumes:
+  influxdb-data:
+  influxdb-config:
+  postgres-data:
+  mosquitto-data:
+  mosquitto-logs:
+  redis-data:
+
+networks:
+  drone-network:
+    driver: bridge
