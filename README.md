@@ -2,7 +2,7 @@
 
 A real-time digital twin system that predicts drone failures and dynamically optimizes flight trajectories to preserve asset integrity and maximize operational efficiency.
 
-## 🚁 Overview
+##  Overview
 
 This project creates a **digital twin** that mirrors physical drone behavior in real-time, enabling:
 - **Predictive Failure Detection**: ML models analyze telemetry to predict component failures before they occur
@@ -12,7 +12,7 @@ This project creates a **digital twin** that mirrors physical drone behavior in 
 - **Live Telemetry Monitoring**: Processes MQTT streams to maintain synchronized digital twin state
 - **Stress & Wear Prediction**: Estimates component degradation and optimizes routes to minimize wear
 
-## 🎯 Key Capabilities
+##  Key Capabilities
 
 ### 1. **Predictive Failure Analysis**
 - Real-time anomaly detection in flight telemetry
@@ -38,7 +38,7 @@ This project creates a **digital twin** that mirrors physical drone behavior in 
 - PostgreSQL: Mission metadata, drone configurations, failure logs
 - Pre-trained ML models: Learned from 1000+ flight hours across multiple platforms
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ├── backend/                 # Main application backend
@@ -62,7 +62,7 @@ This project creates a **digital twin** that mirrors physical drone behavior in 
 └── docker-compose.yml    # Infrastructure setup
 ```
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -218,7 +218,7 @@ python scripts/validate_with_public_data.py
 python scripts/analyze_kaggle_datasets.py
 ```
 
-## 🧪 Testing
+##  Testing
 
 Run the test suite:
 
@@ -233,7 +233,7 @@ Run with coverage:
 pytest --cov=src --cov-report=html
 ```
 
-## 📊 Supported Flight Controllers
+## 📊Supported Flight Controllers
 
 | Controller | Parser | Status | Log Format |
 |------------|--------|--------|------------|
@@ -243,7 +243,7 @@ pytest --cov=src --cov-report=html
 | UAV Navigation | ✅ | Beta | Custom CSV |
 | SurveilDrone | ✅ | Beta | Custom format |
 
-## 🤖 Machine Learning
+##  Machine Learning
 
 The system includes a pre-trained failure prediction model (`backend/src/ml/failure_model.joblib`) that:
 - **Extracts 50+ features** from flight telemetry (vibration patterns, power consumption, thermal characteristics)
@@ -259,7 +259,7 @@ The system includes a pre-trained failure prediction model (`backend/src/ml/fail
 - GPS/sensor anomalies: 96.5% accuracy
 - General system health: 89.7% overall F1-score
 
-## 🛤️ Trajectory Optimization
+## Trajectory Optimization
 
 The digital twin continuously evaluates flight paths and recalculates when:
 - Predicted failure probability > 25%
@@ -274,7 +274,7 @@ The digital twin continuously evaluates flight paths and recalculates when:
 
 The system generates multiple candidate trajectories and selects optimal based on weighted scoring.
 
-## 📁 Data Organization
+##  Data Organization
 
 ```
 data/
@@ -290,7 +290,7 @@ data/
 └── validation/       # Validation reports and summaries
 ```
 
-## 🔧 Common Tasks
+## Common Tasks
 
 ### Create Drone Configuration
 
@@ -350,7 +350,7 @@ docker-compose logs mosquitto
 
 Verify `config/mosquitto.conf` settings.
 
-## 🚧 Development Status
+##  Development Status
 
 ### ✅ Completed
 - Multi-format log parsing
@@ -359,27 +359,27 @@ Verify `config/mosquitto.conf` settings.
 - MQTT streaming
 - Docker infrastructure
 
-### 🔄 In Progress
+### In Progress
 - Frontend dashboard
 - Real-time visualization
 - API documentation
 - Unit test coverage
 
-### 📝 Planned
+###  Planned
 - Kubernetes deployment
 - Cloud integration (AWS/Azure)
 - Advanced ML models
 - Mobile app integration
 
-## 📄 License
+##  License
 
 [Add your license here]
 
-## 🤝 Contributing
+##  Contributing
 
 [Add contribution guidelines here]
 
-## 📞 Contact
+## Contact
 
 [Add contact information here]
 
