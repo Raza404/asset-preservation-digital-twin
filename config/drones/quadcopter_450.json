@@ -1,0 +1,124 @@
+{
+  "drone_id": "QUAD_450_01",
+  "model_name": "Standard 450mm Quadcopter",
+  "frame_type": "quad_x",
+  "total_weight_kg": 1.5,
+  "frame_material": "carbon_fiber",
+  "wheelbase_m": 0.45,
+  "cog_x": 0.0,
+  "cog_y": 0.0,
+  "cog_z": 0.0,
+  "motors": [
+    {
+      "motor_id": 1,
+      "position_x": 0.1590990257669732,
+      "position_y": 0.1590990257669732,
+      "position_z": 0.0,
+      "rotation_direction": "CW",
+      "max_thrust_n": 20.0,
+      "max_rpm": 8000,
+      "weight_kg": 0.055,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    },
+    {
+      "motor_id": 2,
+      "position_x": 0.1590990257669732,
+      "position_y": -0.1590990257669732,
+      "position_z": 0.0,
+      "rotation_direction": "CCW",
+      "max_thrust_n": 20.0,
+      "max_rpm": 8000,
+      "weight_kg": 0.055,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    },
+    {
+      "motor_id": 3,
+      "position_x": -0.1590990257669732,
+      "position_y": -0.1590990257669732,
+      "position_z": 0.0,
+      "rotation_direction": "CW",
+      "max_thrust_n": 20.0,
+      "max_rpm": 8000,
+      "weight_kg": 0.055,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    },
+    {
+      "motor_id": 4,
+      "position_x": -0.1590990257669732,
+      "position_y": 0.1590990257669732,
+      "position_z": 0.0,
+      "rotation_direction": "CCW",
+      "max_thrust_n": 20.0,
+      "max_rpm": 8000,
+      "weight_kg": 0.055,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    }
+  ],
+  "arms": [
+    {
+      "arm_id": 1,
+      "length_m": 0.225,
+      "cross_section_area_m2": 0.0001,
+      "material": "carbon_fiber",
+      "thickness_mm": 2.0,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 1
+    },
+    {
+      "arm_id": 2,
+      "length_m": 0.225,
+      "cross_section_area_m2": 0.0001,
+      "material": "carbon_fiber",
+      "thickness_mm": 2.0,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 2
+    },
+    {
+      "arm_id": 3,
+      "length_m": 0.225,
+      "cross_section_area_m2": 0.0001,
+      "material": "carbon_fiber",
+      "thickness_mm": 2.0,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 3
+    },
+    {
+      "arm_id": 4,
+      "length_m": 0.225,
+      "cross_section_area_m2": 0.0001,
+      "material": "carbon_fiber",
+      "thickness_mm": 2.0,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 4
+    }
+  ],
+  "battery": {
+    "capacity_mah": 5000,
+    "voltage_nominal": 14.8,
+    "voltage_max": 16.8,
+    "voltage_min": 12.8,
+    "chemistry": "LiPo",
+    "cells": 4,
+    "weight_kg": 0.45,
+    "max_discharge_c": 50.0,
+    "max_charge_c": 5.0,
+    "expected_cycle_life": 300
+  },
+  "drag_coefficient": 0.6,
+  "frontal_area_m2": 0.09,
+  "max_speed_ms": 15.0,
+  "max_climb_rate_ms": 5.0,
+  "max_bank_angle_deg": 45.0,
+  "max_yaw_rate_degs": 180.0,
+  "max_wind_speed_ms": 8.0,
+  "min_temperature_c": -10.0,
+  "max_temperature_c": 50.0
+}

@@ -1,0 +1,103 @@
+{
+  "drone_id": "MY_BETAFLIGHT_DRONE",
+  "model_name": "My Betaflight Quadcopter",
+  "frame_type": "X",
+  "total_weight_kg": 1.0,
+  "frame_material": "Carbon Fiber",
+  "wheelbase_m": 0.45,
+  "motors": [
+    {
+      "motor_id": 1,
+      "max_thrust_n": 11.772,
+      "max_rpm": 8000,
+      "weight_kg": 0.08,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    },
+    {
+      "motor_id": 2,
+      "max_thrust_n": 11.772,
+      "max_rpm": 8000,
+      "weight_kg": 0.08,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    },
+    {
+      "motor_id": 3,
+      "max_thrust_n": 11.772,
+      "max_rpm": 8000,
+      "weight_kg": 0.08,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    },
+    {
+      "motor_id": 4,
+      "max_thrust_n": 11.772,
+      "max_rpm": 8000,
+      "weight_kg": 0.08,
+      "expected_lifetime_hours": 200.0,
+      "critical_temp_celsius": 85.0
+    }
+  ],
+  "arms": [
+    {
+      "arm_id": 1,
+      "length_m": 0.225,
+      "cross_section_area_m2": 4e-06,
+      "material": "Carbon Fiber",
+      "thickness_mm": 2.5,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 1
+    },
+    {
+      "arm_id": 2,
+      "length_m": 0.225,
+      "cross_section_area_m2": 4e-06,
+      "material": "Carbon Fiber",
+      "thickness_mm": 2.5,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 2
+    },
+    {
+      "arm_id": 3,
+      "length_m": 0.225,
+      "cross_section_area_m2": 4e-06,
+      "material": "Carbon Fiber",
+      "thickness_mm": 2.5,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 3
+    },
+    {
+      "arm_id": 4,
+      "length_m": 0.225,
+      "cross_section_area_m2": 4e-06,
+      "material": "Carbon Fiber",
+      "thickness_mm": 2.5,
+      "max_bending_stress_mpa": 600.0,
+      "fatigue_limit_mpa": 300.0,
+      "motor_id": 4
+    }
+  ],
+  "battery": {
+    "capacity_mah": 5000,
+    "voltage_nominal": 22.2,
+    "voltage_max": 25.2,
+    "voltage_min": 19.2,
+    "chemistry": "LiPo",
+    "cells": 6,
+    "weight_kg": 0.65,
+    "max_discharge_c": 50.0,
+    "max_charge_c": 5.0,
+    "expected_cycle_life": 300
+  },
+  "drag_coefficient": 0.6,
+  "frontal_area_m2": 0.08,
+  "max_speed_ms": 20.0,
+  "max_climb_rate_ms": 8.0,
+  "max_bank_angle_deg": 60.0,
+  "max_yaw_rate_degs": 200.0,
+  "max_wind_speed_ms": 10.0
+}
