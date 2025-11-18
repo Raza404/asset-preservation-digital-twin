@@ -5,7 +5,7 @@ Predicts failure probability across multiple time horizons (30s, 60s, 120s).
 
 import numpy as np
 import pandas as pd
-from typing import Dict, List, Tuple, Optional
+from typing import Dict, List, Tuple, Optional, Any
 import warnings
 warnings.filterwarnings('ignore')
 
@@ -16,8 +16,10 @@ try:
     from tensorflow.keras.layers import LSTM, Dense, Dropout, BatchNormalization
     from tensorflow.keras.callbacks import EarlyStopping, ReduceLROnPlateau
     TENSORFLOW_AVAILABLE = True
+    SequentialModel = Sequential
 except ImportError:
     TENSORFLOW_AVAILABLE = False
+    SequentialModel = Any  # Fallback type
     print("⚠️  TensorFlow not installed. LSTM predictor will use fallback mode.")
 
 
@@ -63,7 +65,7 @@ class LSTMFailurePredictor:
         if model_path and TENSORFLOW_AVAILABLE:
             self._load_model(model_path)
     
-    def _build_model(self, input_shape: Tuple[int, int], num_outputs: int = 5) -> Optional[Sequential]:
+    def _build_model(self, input_shape: Tuple[int, int], num_outputs: int = 5) -> Optional[Any]:
         """
         Build LSTM architecture.
         

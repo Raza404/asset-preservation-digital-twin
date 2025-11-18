@@ -10,8 +10,9 @@ from dataclasses import dataclass
 import warnings
 warnings.filterwarnings('ignore')
 
-from backend.src.ml.lstm_failure_predictor import LSTMFailurePredictor
-from backend.src.ml.enhanced_rf_predictor import EnhancedRandomForestPredictor
+from .lstm_failure_predictor import LSTMFailurePredictor
+from .enhanced_rf_predictor import EnhancedRandomForestPredictor
+from .rule_based_predictor import RuleBasedPredictor
 
 
 @dataclass
@@ -48,6 +49,7 @@ class HybridDecisionEngine:
         """
         self.rf_predictor = EnhancedRandomForestPredictor(rf_model_path)
         self.lstm_predictor = LSTMFailurePredictor(model_path=lstm_model_path)
+        self.rule_based_predictor = RuleBasedPredictor()  # Production-ready fallback
         
         self.telemetry_buffer = []  # Store recent telemetry for LSTM
         self.buffer_size = 30  # 3 seconds at 10Hz
@@ -119,8 +121,10 @@ class HybridDecisionEngine:
             analysis = self.rf_predictor.predict_with_health_analysis(df)
             return analysis
         except Exception as e:
-            print(f"⚠️ RF analysis failed: {e}")
-            return {'overall_risk': 0.5, 'component_health': {}, 'recommendations': []}
+            print(f"⚠️ RF analysis failed: {e}. Using rule-based analysis.")
+            # Fallback to rule-based analysis
+            rule_results = self.rule_based_predictor.analyze_telemetry(self.telemetry_buffer)
+            return self._convert_rule_results_to_rf_format(rule_results)
     
     def _run_lstm_analysis(self) -> Optional[Dict]:
         """Run LSTM analysis on telemetry sequence."""
@@ -423,3 +427,33 @@ class HybridDecisionEngine:
             report += f"  {i}. {self._format_action(action)}\n"
         
         return report
+    
+    def _convert_rule_results_to_rf_format(self, rule_results: Dict) -> Dict:
+        """Convert rule-based results to RF-compatible format."""
+        if not rule_results:
+            return {'overall_risk': 0.5, 'component_health': {}, 'recommendations': []}
+        
+        # Calculate overall risk
+        risks = [comp.risk_level for comp in rule_results.values() if hasattr(comp, 'risk_level')]
+        overall_risk = max(risks) if risks else 0.5
+        
+        # Convert component health
+        component_health = {}
+        all_recommendations = []
+        
+        for comp_name, comp_health in rule_results.items():
+            if hasattr(comp_health, 'risk_level'):
+                component_health[comp_name] = {
+                    'health_score': 1.0 - comp_health.risk_level,
+                    'status': comp_health.status,
+                    'issues': comp_health.triggers,
+                    'degradation_rate': 0.0
+                }
+                all_recommendations.extend(comp_health.recommendations)
+        
+        return {
+            'overall_risk': overall_risk,
+            'component_health': component_health,
+            'recommendations': all_recommendations,
+            'source': 'rule_based'
+        }
