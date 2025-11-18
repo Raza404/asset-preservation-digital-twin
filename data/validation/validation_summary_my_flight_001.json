@@ -1,0 +1,41 @@
+{
+  "log_file": "my_flight_001.csv",
+  "config": "Standard 450mm Quadcopter",
+  "total_records": 113736,
+  "duration_seconds": 112.138156,
+  "avg_stress": 26.891111726423755,
+  "max_stress": 52.00285361802898,
+  "min_stress": 0.19129280549138886,
+  "avg_g_force": 2.1965845789095466,
+  "max_g_force": 20.789299892011755,
+  "min_g_force": 0.08666025617317318,
+  "high_stress_events": 0,
+  "validation_tests": [
+    {
+      "name": "Data Quality",
+      "passed": true,
+      "details": "113736 records loaded"
+    },
+    {
+      "name": "G-Force Range",
+      "passed": "False",
+      "details": "Avg: 2.20G, Max: 20.79G"
+    },
+    {
+      "name": "Stress Calculation",
+      "passed": "True",
+      "details": "Average stress: 26.9/100"
+    },
+    {
+      "name": "Accelerometer Data",
+      "passed": true,
+      "details": "100.0% of records have IMU data"
+    },
+    {
+      "name": "High Stress Detection",
+      "passed": true,
+      "details": "0 high stress events detected"
+    }
+  ],
+  "high_stress_details": []
+}

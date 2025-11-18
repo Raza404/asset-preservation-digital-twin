@@ -1,0 +1,7 @@
+dataset,config,error,tests_passed,tests_total,success_rate,num_records,avg_stress_score,max_stress_score,avg_g_force,max_g_force,high_stress_events
+SurveilDrone-Net23,hexacopter_600,'carbon_fiber' is not a valid MaterialType,,,,,,,,,
+SurveilDrone-Net23,my_betaflight_drone,,4.0,4.0,100.0,140256.0,0.0,0.0,1.0,1.0,0.0
+SurveilDrone-Net23,quadcopter_450,'carbon_fiber' is not a valid MaterialType,,,,,,,,,
+uav_navigation_dataset,hexacopter_600,'carbon_fiber' is not a valid MaterialType,,,,,,,,,
+uav_navigation_dataset,my_betaflight_drone,,4.0,4.0,100.0,5000.0,0.0,0.0,1.0,1.0,0.0
+uav_navigation_dataset,quadcopter_450,'carbon_fiber' is not a valid MaterialType,,,,,,,,,

@@ -1,0 +1,48 @@
+[
+  {
+    "dataset": "SurveilDrone-Net23",
+    "config": "hexacopter_600",
+    "error": "'carbon_fiber' is not a valid MaterialType"
+  },
+  {
+    "dataset": "SurveilDrone-Net23",
+    "config": "my_betaflight_drone",
+    "tests_passed": 4,
+    "tests_total": 4,
+    "success_rate": 100.0,
+    "num_records": 140256,
+    "avg_stress_score": 0.0,
+    "max_stress_score": 0.0,
+    "avg_g_force": 1.0,
+    "max_g_force": 1.0,
+    "high_stress_events": 0
+  },
+  {
+    "dataset": "SurveilDrone-Net23",
+    "config": "quadcopter_450",
+    "error": "'carbon_fiber' is not a valid MaterialType"
+  },
+  {
+    "dataset": "uav_navigation_dataset",
+    "config": "hexacopter_600",
+    "error": "'carbon_fiber' is not a valid MaterialType"
+  },
+  {
+    "dataset": "uav_navigation_dataset",
+    "config": "my_betaflight_drone",
+    "tests_passed": 4,
+    "tests_total": 4,
+    "success_rate": 100.0,
+    "num_records": 5000,
+    "avg_stress_score": 0.0,
+    "max_stress_score": 0.0,
+    "avg_g_force": 1.0,
+    "max_g_force": 1.0,
+    "high_stress_events": 0
+  },
+  {
+    "dataset": "uav_navigation_dataset",
+    "config": "quadcopter_450",
+    "error": "'carbon_fiber' is not a valid MaterialType"
+  }
+]
